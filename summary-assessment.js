@@ -59,7 +59,10 @@ function each(coll, f) {
   //wordLengths("hello its me") // [5,3,2]
   
   function wordLengths(str) {
-      // TODO: your code here 
+    var arrayOfWords = str.split(' '); // First we split the string into array of words
+    return map(arrayOfWords, function(element){ // iterate over array and return the length of each element  	
+      return element.length;
+    });
   }
   
   //=============================================================================
@@ -72,7 +75,14 @@ function each(coll, f) {
   // countOccurrences("hello, world!", "l"); // 3
   
   function countOccurrences(string, character) {
-      // your code is here
+  	var counter = 0 // Variable to count
+    var arrayOfChars = string.split(''); 
+    each(arrayOfChars, function(element){ // iterate over array
+    	if(element === character){ // if matched 
+    		counter++; // count ++
+    	}
+    })
+    return counter;
   }
   
   //=============================================================================
