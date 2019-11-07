@@ -217,7 +217,31 @@ function each(coll, f) {
   
   // Write your code here .....
 
-  
+  function ReadingList(){
+  	var obj = {};
+  	obj.read = 0;
+  	obj.unRead;
+  	obj.toRead = []; // Array
+  	obj.currentRead;
+  	obj.readBooks = []; // Array
+  	obj.addBook = addBook;
+  	obj.finishCurrentBook = finishCurrentBook;
+
+  	return obj;
+  }
+
+  var addBook = function(book){
+  	this.toRead.push(book);
+  }
+
+  var finishCurrentBook = function(){
+  	this.readBooks.push(this.currentRead)
+  	this.read++;
+  	this.currentRead = this.toRead[0];
+  	this.unRead--;
+  }
+
+
 
 
 
