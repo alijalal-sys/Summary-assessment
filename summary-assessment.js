@@ -94,7 +94,10 @@ function each(coll, f) {
   // wordsLongerThanThree("Hello Mad World") //["Hello", "World"]
   
   function wordsLongerThanThree(str) {
-      // TODO: your code here 
+      var arrayOfWords = str.split(' ');
+      return filter(arrayOfWords, function(element){ // here we use filter to filter the array to get only the words with length > 3
+      	return element.length > 3;
+      })
   }
   
   //=============================================================================
@@ -109,8 +112,13 @@ function each(coll, f) {
   //repeatString('dog', 3); // => 'dog' + 'dog' + 'dog' => 'dogdogdog'
   
   function repeatString(str, count) { 
-   // TODO: your code here 
-  } 
+	  var newStr = '';
+	  if(count === 0){
+	  	return str;
+	  }
+	  	return str += repeatString(str, count - 1);
+  	} 
+   
    
   
   //=============================================================================
@@ -123,9 +131,12 @@ function each(coll, f) {
    numberOfSlice a property that hold the number of slice, ex: 8
    ** the values of all properties will be provided as arguments in the function invocation. 
    addIngredients a function that add a new ingredient to the ingredients property.
-   displayIngredients a function that displays a comma separated string of all ingredients. ex: The ingredients are:tomato,mushroom,meat
-   bakePizza a function that display a string with your pizza description after 2 seconds. ex "Your thin M 8 slice pizza is done" 
-   eatSlice a function that let you eat from the pizza as long as the numberOfSlice is greater than zero and decrease the total number of slices by one.
+   displayIngredients a function that displays a comma separated string of all ingredients. 
+   ex: The ingredients are:tomato,mushroom,meat
+   bakePizza a function that display a string with your pizza description after 2 seconds. 
+   ex "Your thin M 8 slice pizza is done" 
+   eatSlice a function that let you eat from the pizza as long as the numberOfSlice is greater than zero and 
+   decrease the total number of slices by one.
    */
   //Example:
   // var pizza = makePizza("thin", "M", 2);
@@ -139,6 +150,25 @@ function each(coll, f) {
   // pizza.eatSlice();
   
   // Write your code here .....
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
   
   //=============================================================================
   /*                                  Q6                                      */
