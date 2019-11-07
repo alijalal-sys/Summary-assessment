@@ -151,25 +151,45 @@ function each(coll, f) {
   
   // Write your code here .....
 
+  function makePizza(crust, size, numberOfSlice){
+  	return {
+  		ingredients: [],
+  		crust: crust,
+  		size: size,
+  		numberOfSlice: numberOfSlice,
+  		addIngredients: function(ingredient){
+  			this.ingredients.push(ingredient);
+  		},
+  		displayIngredients: function(){
+  			console.log('ingredients are : ' + this.ingredients.join(', '));
+  		},
+  		bakePizza: function(){
+  			setTimeout(function(){
+  				console.log('your ' + crust + ' ' + size + ' ' + numberOfSlice + ' Pizza is ready')
+  			}, 2000)
+  		},
+  		eatSlice: function(){
+  			if(numberOfSlice === 0){
+  				console.log('That is it')
+  			}
+  			if(numberOfSlice > 0){
+  				console.log('Ammm')
+  				numberOfSlice--;
+  			}
+  		}
+  	}
+  }
 
+  var pizza = makePizza("thin", "M", 2);
+  pizza.addIngredients("tomato");
+  pizza.addIngredients("meshroom");
+  pizza.addIngredients("meat");
+  console.log(pizza.displayIngredaints());
+  pizza.bakePizza();
+  pizza.eatSlice();
+  pizza.eatSlice();
+  pizza.eatSlice();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
   //=============================================================================
   /*                                  Q6                                      */
   //=============================================================================
@@ -193,8 +213,26 @@ function each(coll, f) {
   */
   
   // Now, to make sure that you are actually reading, make a comment below this and type: Yes I am
+  // Yes i am
   
   // Write your code here .....
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
   //=============================================================================
   /*                                  Q7                                       */
