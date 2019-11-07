@@ -114,7 +114,7 @@ function each(coll, f) {
   function repeatString(str, count) { 
 	  var newStr = '';
 	  if(count === 0){
-	  	return str;
+	  	return newStr;
 	  }
 	  	return str += repeatString(str, count - 1);
   	} 
@@ -153,10 +153,14 @@ function each(coll, f) {
 
   function makePizza(crust, size, numberOfSlice){
   	return {
+
+  		//  Returning the object includes all the keys and values and methodes ** that's closure *_*
   		ingredients: [],
   		crust: crust,
   		size: size,
   		numberOfSlice: numberOfSlice,
+
+  		// Methodes Section
   		addIngredients: function(ingredient){
   			this.ingredients.push(ingredient);
   		},
@@ -180,6 +184,7 @@ function each(coll, f) {
   	}
   }
 
+  // Testing Section
   var pizza = makePizza("thin", "M", 2);
   pizza.addIngredients("tomato");
   pizza.addIngredients("meshroom");
@@ -219,6 +224,8 @@ function each(coll, f) {
 
   function ReadingList(){
   	var obj = {};
+
+  	// Those are the keys & value
   	obj.read = 0;
   	obj.unRead;
   	obj.toRead = []; // Array
@@ -226,9 +233,12 @@ function each(coll, f) {
   	obj.readBooks = []; // Array
   	obj.addBook = addBook;
   	obj.finishCurrentBook = finishCurrentBook;
+  	// Those are the keys & value
 
   	return obj;
   }
+
+  // Methodes
 
   var addBook = function(book){
   	this.toRead.push(book);
@@ -241,23 +251,9 @@ function each(coll, f) {
   	this.unRead--;
   }
 
+  // Methodes
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
   //=============================================================================
   /*                                  Q7                                       */
   //=============================================================================
@@ -277,6 +273,31 @@ function each(coll, f) {
   //  safe('money','small') => "watch gold-bar money"
   
   // Write your code here .....
+
+  function makeSafe(init){
+  	var newArr = []; // new array to save the stuff
+  	var storageSize = init; // here we save our variable in local variable
+  	return function(item, itemSize){
+			if(itemSize === 'big'){ // if condition for each itemSize to see the size and discrease it from the storage size 
+  			newArr.push(item);
+  			storageSize -= 3;
+  		}
+  		if(itemSize === 'medium'){ // same
+  			newArr.push(item);
+  			storageSize -= 2;
+  		}
+  		if(itemSize === 'small'){ // same
+  			newArr.push(item);
+  			storageSize -= 1;
+  		}
+  		if(storageSize < 0){ // and here if the storageSize is less than 0 which mean our safe is full can't take another item it shows that your item can't fit
+  			return 'can\'t fit'
+  		}
+  		if(storageSize === 0){ // and here if the storageSize is 0 which mean the safe is full return the stuff inside it
+  			return newArr.join(', ')
+  		}
+  	}
+  }
   
   //=============================================================================
   /*                                  Q8                                       */
@@ -294,7 +315,7 @@ function each(coll, f) {
   //DO NOT USE JQUERY
   
   //================================================================================
-  /*                              Q9                                            */
+  /*                              Q9                                              */
   //================================================================================
   
   //Create HTML, CSS & JS files
@@ -318,10 +339,16 @@ function each(coll, f) {
   //================================================================================
   // Theoretical questions.
   // 1- In your own words,Why do we use Closures ?
+  // we use closures to avoid using global variable and focus only on local variable and PARAMETER
   
   // 2- In OOP, what does "this" refer to ?
+  // this refers to the object which instance of the class
   
   // 3- What is jQuery?
+  // Javascript library makes our lives easier, saves some time and to short our code
   
   // 4- what is the diffrence between Closure's methods and The OOP's methods?
+  // so closure methodes so if u create object from a closure function it will takes the whole variables and functions
+  // even if we don't want to use them so it takes alot from the memory space
+  // in the other hand oop methodes are much easier and don't take extra memory space unless you want to use them
   
